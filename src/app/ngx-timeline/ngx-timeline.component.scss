@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue",Helvetica;
+}
+.timeline-container{
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+  
+  .timeline-progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 10px;
+    background: var(--progress-color, green); /* Use CSS variable for dynamic color */
+    z-index: 2;
+    transform: translateY(-50%);
+    transition: width 0.3s, height 0.3s, background 0.3s;
+  }
+  
+  .timeline-event {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    cursor: pointer;
+  }
+  
+  .timeline-event .event-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: border-color 0.3s;
+  }
+  
+  .timeline-event.active .event-circle {
+    border-color: green;
+  }
+  
+  .event-date {
+    margin: 10px 0;
+    font-weight: medium;
+    color: black;
+  }
+  
+  .event-details {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    flex-basis: 30%;
+  }
+  
+  .event-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .event-description {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .progress-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+  }
+  
+//   @media (max-width: 768px) {
+//     .timeline-container {
+//       flex-direction: row;
+//       align-items: flex-start;
+//     }
+  
+//     .timeline {
+//       flex-direction: column;
+//       align-items: flex-start;
+//       justify-content: flex-start;
+//       position: relative;
+//     }
+  
+//     .timeline-line, .timeline-progress {
+//       top: 0;
+//       left: 50%;
+//       height: 100%;
+//       width: 10px;
+//       transform: translateX(-50%);
+//     }
+  
+//     .timeline-event {
+//       flex-direction: row;
+//       align-items: center;
+//       margin: 10px 0;
+//     }
+  
+//     .timeline-event .event-circle {
+//       margin-right: 10px;
+//     }
+  
+//     .event-date {
+//       margin-top: 0;
+//       margin-left: 10px;
+//     }
+  
+//     .event-details {
+//       margin-top: 0;
+//       margin-left: 20px;
+//       text-align: left;
+//       flex-basis: 70%;
+//     }
+  
+//     .progress-circle {
+//       position: absolute;
+//       top: calc(100% + 20px);
+//       left: 50%;
+//       transform: translateX(-50%);
+//     }
+//   }
+  
