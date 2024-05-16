@@ -1,12 +1,24 @@
 <div class="timeline-container">
     <div class="timeline">
-      <div class="timeline-line"></div>
+      <div class="timeline-line">
+         <!-- Flag element -->
+      <div class="flag">
+        <div class="flag-line"></div>
+        <div class="flag-box"></div>
+        <span>Text here</span>
+      </div>
+         <!-- Flag element -->
+         <div class="flag2">
+          <div class="flag2-line"></div>
+          <div class="flag2-box"></div>
+          <span>Text here</span>
+        </div>
+      </div>
       <div class="timeline-progress" [style.width.%]="progress"></div>
       <div class="timeline-event" 
            *ngFor="let event of timelineEvents; let i = index" 
            [class.active]="i <= activeIndex"
            >
-           <!-- (click)="setActiveEvent(i)" -->
           <div class="event-date">{{ event.date }}</div>
         <div class="event-circle">
           <i [class]="event.icon"></i>
@@ -14,6 +26,7 @@
         <div class="event-date">{{ event.date }}</div>
       </div>
     </div>
+    
   
     <div class="event-details" *ngIf="activeEvent">
       <div class="event-title">{{ activeEvent.title }}</div>

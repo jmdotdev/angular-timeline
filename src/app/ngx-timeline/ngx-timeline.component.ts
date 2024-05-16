@@ -20,7 +20,8 @@ interface TimelineEvent {
 export class NgxTimelineComponent implements OnInit {
   activeIndex = 0;
   progress = 0;
-  progressStage = 0; // To keep track of the progress stages
+  progressStage = 0;
+  totalStages = 3;
   interval: any;
 
   timelineEvents: TimelineEvent[] = [
@@ -38,8 +39,6 @@ export class NgxTimelineComponent implements OnInit {
 
   ngOnInit() {
     this.activeEvent = this.timelineEvents[this.activeIndex];
-    console.log("activeindex",this.activeIndex)
-    // this.setActiveEvent(this.activeIndex);
   }
 
   setActiveEvent(index: number): void {
@@ -48,10 +47,9 @@ export class NgxTimelineComponent implements OnInit {
     this.startProgress();
   }
   startProgress(): void {
-    const totalStages = 3;
     const stageDuration = 0.1 * 60 * 1000; // 1 seconds in milliseconds
     this.interval = setInterval(() => {
-      if (this.progressStage < totalStages) {
+      if (this.progressStage < this.totalStages) {
         this.progressStage++;
         this.updateProgress();
       } else {
@@ -61,25 +59,30 @@ export class NgxTimelineComponent implements OnInit {
   }
 
   updateProgress(): void {
+    console.log("activeindex",this.activeIndex + 1)
     const percentagePerStage = 100 / (this.timelineEvents.length - 1) / 3;
     this.progress += percentagePerStage;
-    console.log(this.progress)
+    // Calculate the starting point for the gradient
+    const currentEventWidth = 100 / (this.timelineEvents.length);
+    const startPercentage = (this.activeIndex + 2) * currentEventWidth;
+    const endPercentage = startPercentage + currentEventWidth;
 
     // Update the color gradient based on the stage
-    let color:any;
+    let color: any;
     switch (this.progressStage) {
-      case 1:
-        color = 'green';
-        break;
-      case 2:
-        color = 'linear-gradient(to right, green, orange)';
-        break;
-      case 3:
-        color = 'linear-gradient(to right, green, orange, red)';
-        break;
+        case 1:
+            color = `linear-gradient(to right, green ${startPercentage}%, green ${endPercentage}%, green ${endPercentage}%)`;
+            break;
+        case 2:
+            color = `linear-gradient(to right, green ${startPercentage}%, green ${endPercentage}%, orange ${endPercentage}%)`;
+            break;
+        case 3:
+            color = `linear-gradient(to right, green ${startPercentage}%, orange ${endPercentage}%,red ${endPercentage}%)`;
+            break;
     }
     document.documentElement.style.setProperty('--progress-color', color);
-  }
+}
+
 
   markAsComplete(index: number): void {
     if (!(index + 1 == this.timelineEvents.length)){
@@ -103,9 +106,12 @@ export class NgxTimelineComponent implements OnInit {
 
     // Set the progress color to green
     document.documentElement.style.setProperty('--progress-color', 'green');
+    this.progressStage = 0;
+
     }
     else{
      alert("done");
+     this.progress = 100; 
     }
   }
   

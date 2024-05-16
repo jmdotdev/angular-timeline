@@ -28,18 +28,81 @@
     z-index: 1;
     transform: translateY(-50%);
   }
+  .timeline-line .flag {
+    position: absolute;
+    bottom: -120px; 
+    left: 8%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    transform: rotate(180deg);
+    z-index: -1;
+    top: 5%;
+  }
+  .flag span{
+    transform: rotate(180deg);
+    font-size: 10px;
+    margin-top: 10px;
+  }
   
+  .timeline-line .flag .flag-line {
+    width: 3px;
+    height: 120px;
+    margin-bottom: 10px;
+    background-color: green;
+  }
+  
+  .timeline-line .flag .flag-box {
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    margin-left: 12px;
+  }
+
+
+  //second flag 
+  .timeline-line .flag2 {
+    position: absolute;
+    bottom: -120px; 
+    left: 48%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    transform: rotate(180deg);
+    z-index: -1;
+    top: 5%;
+  }
+  .flag2 span{
+    transform: rotate(180deg);
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  
+  .timeline-line .flag2 .flag2-line {
+    width: 3px;
+    height: 120px;
+    margin-bottom: 10px;
+    background-color: red;
+  }
+  
+  .timeline-line .flag2 .flag2-box {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    margin-left: 12px;
+  }
+
+  //end of second flag
   .timeline-progress {
     position: absolute;
     top: 50%;
     left: 0;
     height: 10px;
-    background: var(--progress-color, green); /* Use CSS variable for dynamic color */
+    background: var(--progress-color); /* Use CSS variable for dynamic color */
     z-index: 2;
     transform: translateY(-50%);
     transition: width 0.3s, height 0.3s, background 0.3s;
-  }
-  
+}  
   .timeline-event {
     position: relative;
     display: flex;
@@ -73,7 +136,7 @@
   }
   
   .event-details {
-    margin-top: 20px;
+    margin-top: 100px;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
@@ -106,9 +169,4 @@
     color: green;
   }
   
-@media only screen and (max-width: 768px) {
-  .timeline-container{
-    transform: rotate(-90deg);
-  }
-}
   
