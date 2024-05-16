@@ -4,9 +4,10 @@
       <div class="timeline-progress" [style.width.%]="progress"></div>
       <div class="timeline-event" 
            *ngFor="let event of timelineEvents; let i = index" 
-           (click)="setActiveEvent(i)"
-           [class.active]="i <= activeIndex">
-            <div class="event-date">{{ event.date }}</div>
+           [class.active]="i <= activeIndex"
+           >
+           <!-- (click)="setActiveEvent(i)" -->
+          <div class="event-date">{{ event.date }}</div>
         <div class="event-circle">
           <i [class]="event.icon"></i>
         </div>

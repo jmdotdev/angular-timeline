@@ -1,6 +1,5 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'
-import {Point} from 'ngx-timeline-vertical';
 
 interface TimelineEvent {
   index: number;
@@ -8,7 +7,8 @@ interface TimelineEvent {
   title: string;
   description: string;
   icon: string;
-  completed: boolean; // Track if the event is completed
+  completed: boolean;
+  percentage?:number | null; // Track if the event is completed
 }
 @Component({
   selector: 'app-ngx-timeline',
@@ -36,27 +36,20 @@ export class NgxTimelineComponent implements OnInit {
   activeEvent = this.timelineEvents[0];
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.activeEvent = this.timelineEvents[this.activeIndex];
+    console.log("activeindex",this.activeIndex)
+    // this.setActiveEvent(this.activeIndex);
   }
 
   setActiveEvent(index: number): void {
     this.activeIndex = index;
     this.activeEvent = this.timelineEvents[index];
-    // this.resetProgress();
     this.startProgress();
   }
-
-  resetProgress(): void {
-    clearInterval(this.interval);
-    this.progress = 0;
-    this.progressStage = 0;
-  }
-
   startProgress(): void {
     const totalStages = 3;
-    const stageDuration = 0.5 * 60 * 1000; // 30 seconds in milliseconds
-
+    const stageDuration = 0.1 * 60 * 1000; // 1 seconds in milliseconds
     this.interval = setInterval(() => {
       if (this.progressStage < totalStages) {
         this.progressStage++;
@@ -69,11 +62,10 @@ export class NgxTimelineComponent implements OnInit {
 
   updateProgress(): void {
     const percentagePerStage = 100 / (this.timelineEvents.length - 1) / 3;
-    console.log("percentagePerStage",percentagePerStage);
     this.progress += percentagePerStage;
     console.log(this.progress)
 
-    // Update the color gradient based on the stage.component.ts
+    // Update the color gradient based on the stage
     let color:any;
     switch (this.progressStage) {
       case 1:
@@ -90,24 +82,31 @@ export class NgxTimelineComponent implements OnInit {
   }
 
   markAsComplete(index: number): void {
+    if (!(index + 1 == this.timelineEvents.length)){
+       // this.startProgress();
+    this.setActiveEvent(index);
     // Mark the event as complete
     this.timelineEvents[index].completed = true;
-    console.log("index",this,this.timelineEvents[index + 1])
 
     // Recalculate progress based on completed events
     const completedEvents = this.timelineEvents.filter(event => event.completed);
     const completedCount = completedEvents.length;
 
-    if (completedCount > 0) {
+    if (completedCount < this.timelineEvents.length) {
       // Calculate progress percentage based on completed events
-      this.progress = this.activeIndex / (this.timelineEvents.length - 1) * 100;
-      console.log(this.progress,"progress")
+      this.progress = (this.activeIndex +1 ) / (this.timelineEvents.length - 1) * 100;
+      this.activeIndex = this.activeIndex + 1;
+      this.setActiveEvent(this.activeIndex)
     } else {
       this.progress = 0;
     }
 
     // Set the progress color to green
     document.documentElement.style.setProperty('--progress-color', 'green');
+    }
+    else{
+     alert("done");
+    }
   }
   
   
