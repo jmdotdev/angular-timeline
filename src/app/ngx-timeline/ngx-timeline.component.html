@@ -20,10 +20,17 @@
            [class.active]="i <= activeIndex"
            >
           <div class="event-date">{{ event.date }}</div>
-        <div class="event-circle">
+          <!-- Percentage Event Circle -->
+        <div class="event-circle percentage" *ngIf="this.timelineEvents[i].index == 8">
+          <div>{{completePercentage}}%</div>
+          <i *ngIf="(!(this.timelineEvents[i].index == 8))" [class]="event.icon"></i>
+        </div>
+        <!-- Other Event Circles -->
+        <div class="event-circle" *ngIf="(!(this.timelineEvents[i].index == 8))">
           <i [class]="event.icon"></i>
         </div>
-        <div class="event-date">{{ event.date }}</div>
+        <div class="event-date" *ngIf="this.timelineEvents[i].index == 8">Done</div>
+        <div class="event-date" *ngIf="!(this.timelineEvents[i].index == 8)">{{ event.date }}</div>
       </div>
     </div>
     
@@ -31,7 +38,7 @@
     <div class="event-details" *ngIf="activeEvent">
       <div class="event-title">{{ activeEvent.title }}</div>
       <div class="event-description">{{ activeEvent.description }}</div>
-      <button (click)="markAsComplete(activeIndex)">Mark as Complete</button>
+      <button *ngIf="progress != 100" (click)="markAsComplete(activeIndex)">Mark as Complete</button>
     </div>
     
   </div>

@@ -24,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 10px;
-    background-color: #ccc;
+    background-color: #D6E6FB;
     z-index: 1;
     transform: translateY(-50%);
   }
@@ -49,14 +49,15 @@
     width: 3px;
     height: 120px;
     margin-bottom: 10px;
-    background-color: green;
+    background-color: #35B288;
   }
   
   .timeline-line .flag .flag-box {
     width: 15px;
     height: 15px;
-    background-color: green;
-    margin-left: 12px;
+    background-color: #35B288;
+    margin-left: -12px;
+    transform: rotate(-180deg);
   }
 
 
@@ -82,14 +83,14 @@
     width: 3px;
     height: 120px;
     margin-bottom: 10px;
-    background-color: red;
+    background-color: #D6E6FB;
   }
   
   .timeline-line .flag2 .flag2-box {
     width: 15px;
     height: 15px;
-    background-color: red;
-    margin-left: 12px;
+    background-color: #D6E6FB;
+    margin-left: -12px;
   }
 
   //end of second flag
@@ -117,7 +118,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
-    border: 3px solid #ccc;
+    border: 3px solid #D6E6FB;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,9 +127,14 @@
   }
   
   .timeline-event.active .event-circle {
-    border-color: green;
+    border-color: #35B288;
   }
   
+  .event-circle.percentage{
+    border: 1px solid #fff important;
+    background-color: #35B288 !important;
+    color: #fff;
+  }
   .event-date {
     margin: 10px 0;
     font-weight: medium;
@@ -166,7 +172,18 @@
     justify-content: center;
     font-size: 16px;
     font-weight: bold;
-    color: green;
+    color: #35B288;
   }
   
-  
+  @media screen and (max-width: 1000px) {
+    // .timeline-container{
+    //   transform: rotate(270deg);
+    // }
+    // .timeline{
+    //   margin-top: 30vh;
+    //   display: flex;
+    //   align-items: center;
+    //   transform: rotate(270deg);
+    //   flex-direction: row-reverse;
+    // }
+  }
