@@ -30,7 +30,7 @@
           <i [class]="event.icon"></i>
         </div>
         <div class="event-date" *ngIf="this.timelineEvents[i].index == 8">Done</div>
-        <div class="event-date" *ngIf="!(this.timelineEvents[i].index == 8)">{{ event.date }}</div>
+        <div class="event-date" *ngIf="!(this.timelineEvents[i].index == 8)">{{ event.title }}</div>
       </div>
     </div>
     

@@ -25,7 +25,7 @@ export class NgxTimelineComponent implements OnInit {
   completePercentage = 0;
 
   timelineEvents: TimelineEvent[] = [
-    { index:1,date: 'Jan 20', title: 'Onboarding', description: 'Preparation', icon: 'fas fa-rocket', completed: false },
+    { index:1,date: 'Jan 20', title: 'Start', description: 'Preparation', icon: 'fas fa-rocket', completed: false },
     { index:2,date: 'Feb 14', title: 'Axos', description: 'Data checking', icon: 'fas fa-check-circle', completed: false },
     { index:3,date: 'Mar 8', title: 'Client', description: 'Completed proof of concept', icon: 'fas fa-clipboard-check', completed: false },
     { index:4,date: 'Apr 30', title: 'Advisor', description: 'Signed Contract', icon: 'fas fa-file-signature', completed: false },
