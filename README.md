@@ -15,7 +15,7 @@ This project is an Angular-based application that visualizes a series of steps i
 
 ## Screenshot
 
-![Timeline Project Screenshot](path/to/your/screenshot.png)
+![Timeline Project Screenshot](./screenshot.png)
 
 ## Installation
 
