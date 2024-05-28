@@ -1,0 +1,45 @@
+<div class="timeline">
+  <div class="timeline-steps">
+    <!-- Single step -->
+    <div class="timeline-step" *ngFor="let step of steps; let i = index" [ngClass]="{ active: currentStep === i, complete: i < currentStep }">
+      <div class="date">{{ step.date }}</div>
+      <div class="circle-container">
+
+        <!-- start of step circle -->
+        <div class="circle" [ngClass]="{'percentage':'i === steps.length - 1'}">
+          <span *ngIf="i < currentStep">&#10003;</span>
+          <span *ngIf="i === steps.length - 1">{{ completionPercentage }}%</span>
+        </div>
+        <!-- end of step circle -->
+
+        <!-- Start of progress bar -->
+        <div *ngIf="i < steps.length - 1" class="progress-bar" [ngStyle]="{'background': progressBarBackgrounds[i]}">
+          <div *ngIf="i == 3" class="flag">
+            <div class="flag-line"></div>
+            <div class="flag-box"></div>
+            <span>Text here</span>
+          </div>
+        </div>
+       <!-- end of progress bar -->
+      </div>
+      <div class="label">{{ step.label }}</div>
+    </div>
+  </div>
+
+
+  <!-- active step details -->
+
+  <div class="event-details">
+    <div class="event-step">
+       <p>Step {{[currentStep + 1]}}</p>
+    </div>
+    <div class="event-data">
+       <div class="event-title"><b>{{ steps[currentStep].label }}</b></div>
+       <div class="event-description">{{ steps[currentStep].details }}</div>
+       <input type="text" class="form-control mt-3" placeholder={{steps[currentStep].details}} [disabled]="true"/><br>
+       <input type="text" class="form-control mt-3" placeholder={{steps[currentStep].details}} [disabled]="true"/><br>
+       <input type="text" class="form-control mt-3" placeholder={{steps[currentStep].details}} [disabled]="true"/><br>
+       <button class="btn" (click)="markAsComplete()">Mark As Complete</button>
+    </div>
+   </div>
+</div>

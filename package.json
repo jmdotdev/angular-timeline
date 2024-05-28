@@ -1,5 +1,5 @@
 {
-  "name": "ngx-timeline-vertical",
+  "name": "angular-timeline",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ngx-timeline-vertical": "node dist/ngx-timeline-vertical/server/server.mjs"
+    "serve:ssr:angular-timeline": "node dist/angular-timeline/server/server.mjs"
   },
   "private": true,
   "dependencies": {
