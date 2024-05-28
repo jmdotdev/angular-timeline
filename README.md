@@ -72,7 +72,4 @@ This project is an Angular-based application that visualizes a series of steps i
 5. Create a new Pull Request.
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
