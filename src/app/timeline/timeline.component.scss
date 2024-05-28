@@ -1,0 +1,166 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-steps {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 100%;
+  // position: relative;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+}
+
+.date {
+  margin-bottom: 5px;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #D6E6FB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: -5px;
+  z-index: 1;
+}
+
+.circle span {
+  font-size: 18px;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 10px;
+  background: #D6E6FB;
+  margin-left: -5px;
+}
+
+.label {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.step-details {
+  text-align: center;
+}
+
+.active .circle {
+  background-color: #35B288;
+}
+
+.complete .circle {
+  background-color: #35B288;
+}
+
+.timeline-step.complete .progress-bar {
+  background-color: #35B288;
+}
+
+.flag {
+  position: absolute;
+  bottom: -100px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  transform: rotate(180deg);
+  z-index: -1;
+  top: 5%;
+  left: 50%;
+}
+
+.flag span {
+  transform: rotate(180deg);
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.flag .flag-line {
+  width: 2px;
+  height: 100px;
+  margin-bottom: 20px;
+  background-color: #35B288;
+}
+
+.flag .flag-box {
+  width: 15px;
+  height: 15px;
+  background-color: #35B288;
+  margin-left: -12px;
+  transform: rotate(-180deg);
+}
+
+.event-details .event-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+  height: auto;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.event-step p {
+  height: 5px;
+}
+
+.event-details .event-data {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+}
+
+input {
+  margin-top: 10px;
+}
+
+.btn {
+  display: flex;
+  padding: 10px 12px;
+  border: none;
+  margin-top: 10px;
+  color: #fff;
+  background-color: #35B288;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+// @media (max-width: 768px) {
+//   .timeline-steps {
+//     flex-direction: column;
+//     align-items: center;
+//   }
+
+//   .circle-container {
+//     flex-direction: row; /* Ensure row layout in mobile view */
+//   }
+
+//   .progress-bar {
+//     width: 5px;
+//     height: 100px;
+//     margin: 10px 0;
+//     position: relative;
+//     left: auto;
+//     transform: none;
+//   }
+// }

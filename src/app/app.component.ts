@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgxTimelineComponent } from "./ngx-timeline/ngx-timeline.component";
+import { TimelineComponent } from './timeline/timeline.component';
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, NgxTimelineComponent]
+    imports: [RouterOutlet, TimelineComponent]
 })
 export class AppComponent implements OnInit {
-  title = 'ngx-timeline-vertical';
+  title = 'angular-timeline';
 
   ngOnInit(): void {
       
