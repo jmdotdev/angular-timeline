@@ -1,6 +1,6 @@
 # Timeline Project in Angular
 
-This project is an Angular-based application that visualizes a series of steps in a timeline format. Each step is represented by a circle on a progress bar. The application allows users to mark steps as complete, and it dynamically updates the progress bar and percentage of completion. Additionally, it includes a feature that visualizes deadlines with a color gradient indicating time progression.
+This project is an Angular application that visualizes a series of steps in a timeline format. Each step is represented by a circle on a progress bar. The application allows users to mark steps as complete, and it dynamically updates the progress bar and percentage of completion. Additionally, it includes a feature that visualizes deadlines with a color gradient indicating time progression.
 
 ## Features
 
